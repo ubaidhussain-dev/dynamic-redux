@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import { BrowserRouter, Link, Route } from "react-router-dom";
+import Home from "./home";
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Fragment>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/records">
+                Records{" "}
+                <small>
+                  (click here for one weird trick that will add dynamic reducer)
+                </small>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Route path="/home" component={Home} />
+      </Fragment>
+    </BrowserRouter>
   );
 }
 
