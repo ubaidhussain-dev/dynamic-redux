@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { withReducer } from "./withReducer";
+import withReducer from "./withReducer";
 
 const Home = () => {
   return (

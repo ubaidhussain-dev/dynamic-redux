@@ -6,23 +6,18 @@ function App(props) {
   return (
     <BrowserRouter>
       <Fragment>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/records">
-                Records{" "}
-                <small>
-                  (click here for one weird trick that will add dynamic reducer)
-                </small>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <h3>
+          <Link to="/">Home</Link>
+        </h3>
+        <h3>
+          <Link to="/home">
+            <p>HOME LINK - CLICK HERE</p>
+          </Link>
+        </h3>
 
-        <Route path="/home" component={Home} />
+        <Route exact path="/home">
+          <Home store={props.store} />
+        </Route>
       </Fragment>
     </BrowserRouter>
   );
