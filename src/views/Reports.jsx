@@ -4,6 +4,8 @@ import reportsReducer from "../reducer/reportsReducer";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
+import { addReport } from "../reducer/newReportReducer";
+
 const Reports = () => {
   const report = useSelector((state) => state.reports.report);
   const dispatch = useDispatch();
@@ -18,11 +20,10 @@ const Reports = () => {
       <Link to="/">Home</Link>
 
       <input value={state} onChange={(e) => setState(e.target.value)} />
-      <button onClick={() => dispatch({ type: "ADD_REPORT", payload: state })}>
-        Update Report
-      </button>
+      <button onClick={() => dispatch(addReport(state))}>Update Report</button>
     </div>
   );
 };
 
-export default withReducer("reports", reportsReducer)(Reports);
+// export default withReducer("reports", reportsReducer)(Reports);
+export default Reports;

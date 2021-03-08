@@ -7,12 +7,14 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 
 import oldStore from "./configStore";
-
 import Routes from "./Routes";
+
+// now Importing new Redux store from ReduxToolkit
+import store from "./reduxToolkit";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={oldStore()}>
+    <Provider store={store}>
       <Routes />
     </Provider>
   </React.StrictMode>,
