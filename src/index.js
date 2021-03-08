@@ -14,7 +14,7 @@ import store from "./reduxToolkit";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store()}>
       <Routes />
     </Provider>
   </React.StrictMode>,

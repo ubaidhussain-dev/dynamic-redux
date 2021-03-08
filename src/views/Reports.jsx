@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { withReducer } from "../withReducer";
-import reportsReducer from "../reducer/reportsReducer";
+// import reportsReducer from "../reducer/reportsReducer";
+import reportsReducer from "../reducer/newReportReducer";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -25,5 +26,5 @@ const Reports = () => {
   );
 };
 
-// export default withReducer("reports", reportsReducer)(Reports);
-export default Reports;
+export default withReducer("reports", reportsReducer)(Reports);
+// export default Reports;

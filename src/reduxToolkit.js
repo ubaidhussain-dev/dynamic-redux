@@ -1,10 +1,26 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import homeReducer from "./reducer/newHomeReducer";
-import reportsReducer from "./reducer/newReportReducer";
+// import reportsReducer from "./reducer/newReportReducer";
 
-export default configureStore({
-  reducer: {
+const rootReducer = (asyncReducer) =>
+  combineReducers({
     home: homeReducer,
-    reports: reportsReducer,
-  },
-});
+    ...asyncReducer,
+  });
+
+const initializeStore = () => {
+  const store = configureStore({
+    reducer: rootReducer(),
+  });
+
+  store.asyncReducer = {};
+  store.injectReducer = (key, reducer) => {
+    store.asyncReducer[key] = reducer;
+
+    store.replaceReducer(rootReducer(store.asyncReducer));
+    return store;
+  };
+
+  return store;
+};
+export default initializeStore;
